@@ -16,7 +16,16 @@ $settings = [
 			'contact' => 'contact@example.com'
 		],
 		'elasticsearch' => [
-			'hosts' => ['127.0.0.1:9200']
+			'hosts' => [
+				[
+					'host' => $_SERVER['ELASTIC_HOST'],
+					'port' => $_SERVER['ELASTIC_PORT'],
+					// 'scheme' => 'https',
+					// 'path' => '/elastic',
+					'user' => $_SERVER['ELASTIC_USER'],
+					'pass' => $_SERVER['ELASTIC_PASS']
+				]
+			]
 		]
 	]
 ];

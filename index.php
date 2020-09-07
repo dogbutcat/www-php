@@ -22,16 +22,19 @@ define('ROOT', __DIR__);
 define('INVITE_ONLY', false);
 define('REQUEST_LOGIN', true);
 
-define('DBNAME', 'databasename');
-define('DBUSER', 'databaseuser');
-define('DBPASS', 'databasepass');
+define('DBSERVER', $_SERVER['DB_ADDR']);
+define('DBPORT', $_SERVER['DB_PORT']);
+define('DBNAME', $_SERVER['DB_NAME']);
+define('DBUSER', $_SERVER['DB_USER']);
+define('DBPASS', $_SERVER['DB_PASS']);
 
 require __DIR__ . '/vendor/autoload.php';
 require __DIR__ . '/lib/rb.php';
 
 timer('autoload done');
 
-R::setup('mysql:host=localhost;dbname='.DBNAME, DBUSER, DBPASS);
+R::setup('mysql:host='.DBSERVER.';dbname='.DBNAME.';port='.DBPORT, DBUSER, DBPASS);
+$isConnected = R::testConnection();
 
 timer('db connection init done');
 
