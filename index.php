@@ -19,8 +19,8 @@ timer('start');
 session_start();
 
 define('ROOT', __DIR__);
-define('INVITE_ONLY', false);
-define('REQUEST_LOGIN', true);
+define('INVITE_ONLY', $_SERVER['INVITE_ONLY']);
+define('REQUEST_LOGIN', $_SERVER['REQUEST_LOGIN']);
 
 define('DBSERVER', $_SERVER['DB_ADDR']);
 define('DBPORT', $_SERVER['DB_PORT']);
