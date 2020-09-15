@@ -9,7 +9,9 @@ if(INVITE_ONLY || REQUEST_LOGIN){
 			$this->view->registerform = $args;
 			$this->view->register = true;
 		}
-		return $this->view->render($response, 'auth');
+		// can't render auth directly, redirect to login page
+		// return $this->view->render($response, 'auth');
+		return $this->view->redirect($response, '/login');
 	}
 }
 

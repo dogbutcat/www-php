@@ -18,6 +18,7 @@ EXPOSE 80
 
 WORKDIR /srv/www
 COPY . .
+RUN chmod 666 ./counts.txt
 COPY ./php/www.conf /usr/local/etc/php-fpm.d/www.conf
 
 RUN apk add nginx
